@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 270 86% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 270 86% 90%;
+    --secondary-foreground: 270 86% 40%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 270 86% 95%;
+    --accent-foreground: 270 86% 45%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 270 86% 56%;
+    --radius: 0.5rem;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+
+  .dark {
+    --background: 260 30% 8%;
+    --foreground: 0 0% 98%;
+    --card: 260 30% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 30% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 86% 56%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 260 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 30% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 270 86% 25%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 30% 15%;
+    --input: 260 30% 15%;
+    --ring: 270 86% 56%;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-source-sans);
+  }
+
+  /* Typography System */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: var(--font-space-grotesk);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 2.5rem; /* 40px */
+  }
+
+  h2 {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  h5 {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+
+  h6 {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  p,
+  li,
+  input,
+  textarea {
+    font-family: var(--font-source-sans);
+    line-height: 1.6;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Responsive typography */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3rem; /* 48px */
+      line-height: 3.25rem; /* 52px */
+    }
+
+    h2 {
+      font-size: 2.25rem; /* 36px */
+      line-height: 2.5rem; /* 40px */
+    }
+
+    h3 {
+      font-size: 1.875rem; /* 30px */
+      line-height: 2.25rem; /* 36px */
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 3.75rem; /* 60px */
+      line-height: 4rem; /* 64px */
+    }
+  }
+}
