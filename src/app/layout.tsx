@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Source_Sans_3 } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "@/components/providers";
 import { Analytics } from "@vercel/analytics/react";
-
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 
 const defaultUrl =
   process.env.NODE_ENV === "production"
@@ -63,11 +60,7 @@ export default function RootLayout({
           `${spaceGrotesk.variable} ${sourceSans3.variable}`,
         )}
       >
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <Providers>{children}</Providers>
         <Analytics />
       </body>
     </html>

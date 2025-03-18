@@ -7,7 +7,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function NotFound() {
   return (
-    <div className="bg-fintech-dark flex min-h-screen flex-col items-center justify-center text-white">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-fintech-dark text-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-4 text-center">
           <DotLottieReact
@@ -20,7 +20,7 @@ export default function NotFound() {
             <h1 className="font-heading text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
               Página Não Encontrada
             </h1>
-            <p className="text-muted-foreground mx-auto max-w-[700px] text-lg md:text-xl">
+            <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
               Ops! A página que você procura não existe ou foi movida.
             </p>
           </div>

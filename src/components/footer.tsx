@@ -1,9 +1,9 @@
 import { Rocket } from "lucide-react";
 import Link from "next/link";
 
-export default function Footer() {
+export const Footer = () => {
   return (
-    <footer className="bg-background border-t">
+    <footer className="border-t bg-background">
       <div className="container px-4 py-8 md:px-6 md:py-12 lg:px-16">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="space-y-4">
@@ -11,7 +11,7 @@ export default function Footer() {
               <Rocket className="h-6 w-6" />
               <span className="font-heading text-xl font-bold">CoFoundry</span>
             </Link>
-            <p className="text-muted-foreground text-base">
+            <p className="text-base text-muted-foreground">
               Conecte-se a profissionais para construir sua startup
             </p>
           </div>
@@ -87,10 +87,10 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="text-muted-foreground mt-8 border-t pt-8 text-center text-base">
+        <div className="mt-8 border-t pt-8 text-center text-base text-muted-foreground">
           © {new Date().getFullYear()} CoFoundry. Todos os direitos reservados.
         </div>
       </div>
     </footer>
   );
-}
+};
