@@ -7,7 +7,11 @@ export function AuthModal() {
   const isUser = false;
 
   return isUser ? (
-    <Button className="text-base">Dashboard</Button>
+    <Button className="text-base" asChild>
+      <Link href="https://app.cofoundry.tech/dashboard" target="_self">
+        Dashboard
+      </Link>
+    </Button>
   ) : (
     <>
       <Button variant="outline" className="text-base" asChild>
