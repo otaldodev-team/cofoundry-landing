@@ -13,31 +13,31 @@ import { Bug, Rocket, Sparkles, Zap } from "lucide-react";
 import { ChangelogFilterType } from "@/app/types/changelog";
 
 export const CHANGELOG_TYPES = {
-  FEATURE: "FEATURE",
-  IMPROVEMENT: "IMPROVEMENT",
-  FIX: "FIX",
+  FEATURE: "feature",
+  IMPROVEMENT: "improvement",
+  FIX: "fix",
 } as const;
 
 const CHANGELOG_TYPE_CONFIG = {
   [CHANGELOG_TYPES.FEATURE]: {
     icon: <Rocket className="h-5 w-5" />,
-    displayName: "New Feature",
+    displayName: "Nova Funcionalidade",
     badgeClass: "bg-green-500/10 text-green-500 hover:bg-green-500/20",
   },
   [CHANGELOG_TYPES.IMPROVEMENT]: {
     icon: <Zap className="h-5 w-5" />,
-    displayName: "Improvement",
+    displayName: "Melhoria",
     badgeClass: "bg-blue-500/10 text-blue-500 hover:bg-blue-500/20",
   },
   [CHANGELOG_TYPES.FIX]: {
     icon: <Bug className="h-5 w-5" />,
-    displayName: "Bug Fix",
+    displayName: "Correção",
     badgeClass: "bg-amber-500/10 text-amber-500 hover:bg-amber-500/20",
   },
   DEFAULT: {
     icon: <Sparkles className="h-5 w-5" />,
-    displayName: "Update",
-    badgeClass: "",
+    displayName: "Atualização",
+    badgeClass: "bg-primary/10 text-primary hover:bg-primary/20",
   },
 };
 
@@ -59,6 +59,20 @@ interface ChangelogListProps {
   filter: ChangelogFilterType;
 }
 
+function compareVersions(v1: string, v2: string) {
+  const parts1 = v1.split(".").map(Number);
+  const parts2 = v2.split(".").map(Number);
+  const len = Math.max(parts1.length, parts2.length);
+
+  for (let i = 0; i < len; i++) {
+    const num1 = parts1[i] || 0;
+    const num2 = parts2[i] || 0;
+    if (num1 > num2) return 1;
+    if (num1 < num2) return -1;
+  }
+  return 0;
+}
+
 export const ChangelogList = ({ items, filter }: ChangelogListProps) => {
   const releases = useMemo(() => {
     const groupedChangelogs = items.reduce(
@@ -70,13 +84,19 @@ export const ChangelogList = ({ items, filter }: ChangelogListProps) => {
             updates: [],
           };
         }
-        acc[changelog.version].updates.push(changelog);
+        acc[changelog.version]!.updates.push(changelog);
         return acc;
       },
       {} as Record<string, Release>,
     );
 
     return Object.values(groupedChangelogs).sort((a, b) => {
+      const versionComparison = compareVersions(b.version, a.version);
+
+      if (versionComparison !== 0) {
+        return versionComparison;
+      }
+
       return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     });
   }, [items]);
@@ -122,7 +142,7 @@ export const ChangelogList = ({ items, filter }: ChangelogListProps) => {
 
   const renderReleaseSection = (release: Release, releaseIndex: number) => {
     const filteredUpdates =
-      filter === "ALL"
+      filter === "all"
         ? release.updates
         : release.updates.filter((update) => update.type === filter);
 
@@ -139,10 +159,10 @@ export const ChangelogList = ({ items, filter }: ChangelogListProps) => {
         <div className="sticky top-20 z-10 mb-6 bg-background/80 py-2 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <h2 className="font-heading text-2xl font-bold">
-              Version {release.version}
+              Versão {release.version}
             </h2>
             <Badge variant="outline" className="text-sm">
-              {new Date(release.createdAt).toLocaleDateString(undefined, {
+              {new Date(release.createdAt).toLocaleDateString("pt-BR", {
                 day: "2-digit",
                 month: "2-digit",
                 year: "numeric",
@@ -162,7 +182,9 @@ export const ChangelogList = ({ items, filter }: ChangelogListProps) => {
 
   if (!releases.length) {
     return (
-      <div className="py-12 text-center">No changelog entries available.</div>
+      <div className="py-12 text-center">
+        Oops! Parece que ainda não há nenhuma atualização nosso Changelog.
+      </div>
     );
   }
 

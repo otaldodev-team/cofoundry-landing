@@ -21,12 +21,12 @@ export interface IChangelog {
   createdAt: Date;
 }
 
-export type ChangelogFilterType = "ALL" | "FEATURE" | "IMPROVEMENT" | "FIX";
+export type ChangelogFilterType = "all" | "feature" | "improvement" | "fix";
 
 export const CHANGELOG_TYPES = {
-  FEATURE: "FEATURE",
-  IMPROVEMENT: "IMPROVEMENT",
-  FIX: "FIX",
+  FEATURE: "feature",
+  IMPROVEMENT: "improvement",
+  FIX: "fix",
 } as const;
 
 export type ChangelogType =
