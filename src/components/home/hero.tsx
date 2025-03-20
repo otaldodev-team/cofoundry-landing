@@ -27,7 +27,7 @@ export const Hero = () => {
                 />
               </motion.h1>
               <motion.p
-                className="text-muted-foreground max-w-[600px] text-balance md:text-xl"
+                className="max-w-[600px] text-balance text-muted-foreground md:text-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -47,7 +47,7 @@ export const Hero = () => {
                 <div className="group relative mx-auto flex items-center justify-center rounded-full bg-white px-4 py-1.5 shadow-xl transition-shadow duration-500 ease-out hover:shadow-2xl">
                   <span
                     className={cn(
-                      "animate-gradient absolute inset-0 block h-full w-full rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+                      "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
                     )}
                     style={{
                       WebkitMask:
@@ -74,7 +74,7 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="relative h-[350px] w-[350px] sm:h-[400px] sm:w-[400px] md:h-[450px] md:w-[450px]">
-              <div className="from-primary/20 to-secondary/40 absolute inset-0 rounded-full bg-gradient-to-br blur-3xl" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/40 blur-3xl" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <DotLottieReact src="/lottie/rocket.lottie" loop autoplay />
               </div>
