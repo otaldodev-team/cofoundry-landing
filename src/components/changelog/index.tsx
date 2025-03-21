@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChangelogFilterType, IChangelog } from "@/app/types/changelog";
+import type { ChangelogFilterType, IChangelog } from "@/types/changelog";
 import { ChangelogList } from "./changelog-list";
 
 const TEXT = {

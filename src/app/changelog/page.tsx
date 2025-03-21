@@ -3,7 +3,7 @@ import { Changelog } from "@/components/changelog";
 import { Footer } from "@/components/footer";
 import axios from "axios";
 import { env } from "@/env";
-import { IChangelog } from "@/app/types/changelog";
+import type { IChangelog } from "@/types/changelog";
 
 async function fetchChangelogs(): Promise<IChangelog[]> {
   try {

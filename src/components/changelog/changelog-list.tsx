@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IChangelog } from "@/app/types/changelog";
+import type { IChangelog, ChangelogFilterType } from "@/types/changelog";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -10,7 +10,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Bug, Rocket, Sparkles, Zap } from "lucide-react";
-import { ChangelogFilterType } from "@/app/types/changelog";
 
 export const CHANGELOG_TYPES = {
   FEATURE: "feature",

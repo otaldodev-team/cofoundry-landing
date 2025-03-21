@@ -5,6 +5,7 @@ import { Values } from "./values";
 import { Team } from "./team";
 import { Stats } from "./stats";
 import { Contact } from "./contact";
+import type { IAbout } from "@/types/about";
 
 const teamMembers = [
   {
@@ -45,7 +46,9 @@ const values = [
   },
 ];
 
-export const About = () => {
+export const About = ({ about }: { about: IAbout }) => {
+  console.log(about);
+
   return (
     <main className="flex-1 py-12">
       <Hero />
