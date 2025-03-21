@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import type { IAboutSection } from "@/types/about";
 
-export const Hero = () => {
+export const Hero = ({ data }: { data: IAboutSection }) => {
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
       <div className="container px-4 md:px-6 lg:px-16">
@@ -16,7 +17,7 @@ export const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                Nossa Missão
+                {data.title}
               </motion.h1>
               <motion.p
                 className="max-w-[600px] text-balance text-muted-foreground md:text-xl"
@@ -24,22 +25,7 @@ export const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                A CoFoundry existe para eliminar barreiras entre profissionais
-                talentosos e ideias inovadoras. Acreditamos que as melhores
-                startups são construídas por equipes diversas, com habilidades
-                complementares e uma visão compartilhada.
-              </motion.p>
-              <motion.p
-                className="mt-4 max-w-[600px] text-balance text-muted-foreground md:text-xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                Nossa plataforma conecta fundadores, desenvolvedores, designers,
-                profissionais de marketing e outros especialistas para colaborar
-                em projetos que realmente importam. Estamos construindo uma
-                comunidade em que grandes ideias encontram o talento necessário
-                para se tornarem realidade.
+                {data.description}
               </motion.p>
             </div>
           </div>

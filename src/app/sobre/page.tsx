@@ -14,6 +14,7 @@ async function fetchAbout(): Promise<IAbout[]> {
           query GetAbout {
             page(where: {title: "Sobre"}) {
               id
+              title
               sections {
                 id
                 title
@@ -22,14 +23,19 @@ async function fetchAbout(): Promise<IAbout[]> {
                   ... on Member {
                     id
                     name
-                    bio
                     job
+                    bio
                     links {
                       id
                       title
                       url
                       icon
                     }
+                  }
+                  ... on Section {
+                    id
+                    title
+                    description
                   }
                 }
               }
@@ -60,7 +66,7 @@ export default async function AboutPage() {
   return (
     <>
       <Header />
-      <About about={about} />
+      <About about={about[0]} />
       <Footer />
     </>
   );
